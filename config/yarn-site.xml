@@ -19,7 +19,7 @@
     	</property>
     	<property>
         	<name>yarn.resourcemanager.hostname</name>
-        	<value>hadoop-master</value>
+        	<value>master</value>
     	</property>
 		<property>
 			<name>yarn.application.classpath</name>

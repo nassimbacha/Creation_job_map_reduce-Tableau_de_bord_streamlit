@@ -21,3 +21,6 @@ tmp/
 # Docker
 .env
 docker-compose.override.yml
+
+# Ignorer gros dataset pour GitHub
+ventes_big_data_final.csv
