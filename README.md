@@ -1,67 +1,57 @@
-\# Hadoop + Spark Mini-Cluster (Docker Compose)
+# YouTube Trending Data Analysis with PySpark
 
+## Context
+With the continuous growth of digital platforms, massive datasets are increasingly common and require distributed processing tools to be analyzed efficiently.  
+This project is part of an academic assignment focused on **Big Data analysis using Apache Spark**, applied to a large-scale YouTube Trending Videos dataset covering **113 countries** and more than **2 million records** :contentReference[oaicite:0]{index=0}.
 
+Apache Spark was used to process, clean, and analyze this dataset in a distributed environment deployed with **Hadoop and Docker**.
 
-A Docker-Compose–orchestrated multi-container cluster with \*\*HDFS + YARN + Spark\*\* (1 master, 2 workers), fully configured and demo-ready.
+---
 
+## Problem Statement
+The main challenge of this project is to **process and analyze a very large CSV dataset (~2.9 GB)** that cannot be handled efficiently with traditional single-machine tools.
 
+Key issues addressed:
+- Correctly reading **multi-line CSV data** (YouTube descriptions spanning multiple lines)
+- Cleaning and structuring raw data for reliable analysis
+- Performing scalable transformations and aggregations using **Spark DataFrames and RDDs**
+- Extracting **meaningful business insights** from massive data volumes
 
-\## Topology
+---
 
-\- `master`: NameNode, SecondaryNameNode, ResourceManager, Spark master
+## Project Description
+This project analyzes YouTube trending videos data using **PySpark**, focusing on data cleaning, transformation, aggregation, and performance comparison between **DataFrame API** and **RDD API**.
 
-\- `slave1`, `slave2`: DataNode + NodeManager, Spark workers
+### Main steps:
+- Loading the dataset from **HDFS** into Spark
+- Handling multi-line CSV parsing and schema inspection
+- Data cleaning (null values, type conversion)
+- Transformations using Spark DataFrames:
+  - Selection and filtering of relevant columns
+  - Calculation of engagement metrics (likes / views)
+  - Aggregations by country and date
+  - Ranking and TOP-N analysis
+- Actions such as counting, aggregation, and writing results to **Parquet format**
+- Re-implementing key analyses using **RDDs** to compare approaches
 
+---
 
+## Business Questions Addressed
+- Which countries generate the highest number of trending videos?
+- Which countries have the highest average engagement rate?
+- How many videos exceed **1 million views**, and how does this vary over time?
+- What are the most viewed trending videos globally?
 
-\## Prereqs
+---
 
-\- Docker Desktop
+## Technologies Used
+- **Apache Spark (PySpark)**
+- **Hadoop HDFS**
+- **Docker**
+- **Python**
+- **Parquet format**
 
-\- Docker Compose
+---
 
-\- (Windows) PowerShell or Git Bash
-
-
-
-\## Quick Start
-
-```bash
-
-\# start containers
-
-docker compose up -d
-
-
-
-\# start SSH on each node
-
-docker exec master  service ssh start
-
-docker exec slave1  service ssh start
-
-docker exec slave2  service ssh start
-
-
-
-\# enter master, start Hadoop
-
-docker exec -it master bash
-
-$HADOOP\_HOME/sbin/start-dfs.sh
-
-$HADOOP\_HOME/sbin/start-yarn.sh
-
-![Hadoop architecture]("C:\Users\tazir\exam_projet\docs\img\Hadoop – Cluster multi-nœuds (1 Master + 2 Workers) V2.png")
-
-![Hadoop architecture]("C:\Users\tazir\exam_projet\docs\img\Dockerfile_Imagenassimhadoopv1_Conteneurs_Réseaubridge.png")
-
-![Hadoop architecture]("C:\Users\tazir\exam_projet\docs\img\Docker_Compose.png")
-
-
-
-
-
-
-
-
+## Notes
+This repository is a **learning and practice project** created for academic purposes, focusing on hands-on experience with Big Data processing using Spark.
