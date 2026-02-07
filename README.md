@@ -70,7 +70,38 @@ Stacked bar charts showing net revenue by country and month
 Detailed tables with Country and Month breakdowns
 
 Clear visualization of business indicators computed by MapReduce
+How to Run the Project
+
+1. Start the Hadoop cluster:
+docker compose up -d
+
+2. Enter the master container:
+docker compose up -d
+
+3. Start Hadoop services:
+./start-hadoop.sh
+4. Run all MapReduce jobs:
+   ./run.sh
+
+5. Launch the Streamlit dashboard
 
 The dashboard runs inside the Hadoop master container and is accessible at:
 
 http://localhost:8501
+
+Technologies Used:
+
+Hadoop (HDFS, YARN, MapReduce)
+
+Python (Hadoop Streaming)
+
+Streamlit
+
+Docker and Docker Compose
+
+Linux (Ubuntu)
+
+Educational Context
+
+This project was developed for academic purposes as part of a Big Data course.
+It illustrates distributed data processing, Hadoop cluster management, MapReduce programming, and data visualization.
