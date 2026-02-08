@@ -188,7 +188,7 @@ echo -e "\n--- FIN DE L'EXÉCUTION ---"
 # =========================================================
 
 echo ""
-echo "--- 🚀 LANCEMENT DU DASHBOARD STREAMLIT ---"
+echo "--- LANCEMENT DU DASHBOARD STREAMLIT ---"
 
 # Dossier des livrables lu par dashboard.py
 mkdir -p "$LOCAL_OUTPUT_BASE"/{output_ca,output_top10,output_retours,output_paiements}
@@ -200,7 +200,7 @@ nohup streamlit run /root/dashboard.py \
   > /root/streamlit.log 2>&1 &
 
 sleep 2
-echo "✅ Dashboard lancé sur http://localhost:8501"
+echo "Dashboard lancé sur http://localhost:8501"
 echo "---- Dernières lignes de /root/streamlit.log ----"
 tail -n 20 /root/streamlit.log
 
